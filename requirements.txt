@@ -1,0 +1,10 @@
+python==3.7.3
+torch==1.7.1
+tqdm==4.49.0
+transformers==4.3.3
+stanza==1.1.1
+nltk==3.5
+scikit-learn==0.23.2
+sense2vec
+simpletransformers
+sentencepiece
