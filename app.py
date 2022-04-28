@@ -22,7 +22,7 @@ with st.form(key="my_form", clear_on_submit=True):
   
   model = AutoModelForSequenceClassification.from_pretrained("amandakonet/climatebert-fact-checking")
   tokenizer = AutoTokenizer.from_pretrained("amandakonet/climatebert-fact-checking")
-  features = tokenizer([claim],[evidence], padding='max_length', truncation=True, return_tensors="pt", max_length=512)
+  features = tokenizer([str(claim)],[str(evidence)], padding='max_length', truncation=True, return_tensors="pt", max_length=512)
                      
   model.eval()
   with torch.no_grad():
