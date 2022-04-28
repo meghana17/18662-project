@@ -29,12 +29,12 @@ with st.form(key="my_form", clear_on_submit=True):
     scores = model(**features).logits
     label_mapping = ['REFUTED', 'SUPPORTED', 'NEI']
     labels = [label_mapping[score_max] for score_max in scores.argmax(dim=1)]
-    st.write(claim)
-    st.write(evidence)
-    st.write(labels)
-    if labels=='SUPPORTED':
+    st.write("CLAIM", claim)
+    st.write("EVIDENCE", evidence)
+    
+    if labels[0]=='SUPPORTED':
       st.write('The evidence SUPPORTS the claim')
-    if labels=='REFUTED':
+    if labels[0]=='REFUTED':
       st.write('The evidence REFUTES the claim')
-    if labels=='NEI':
+    if labels[0]=='NEI':
       st.write('There isn\'t enough information to verify this claim')
