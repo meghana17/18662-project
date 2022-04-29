@@ -28,7 +28,7 @@ with st.form(key="my_form", clear_on_submit=True):
       model.eval()
       with torch.no_grad():
         scores = model(**features).logits
-        label_mapping = ['REFUTED', 'SUPPORTED', 'NEI']
+        label_mapping = ['SUPPORTED', 'REFUTED', 'NEI']
         labels = [label_mapping[score_max] for score_max in scores.argmax(dim=1)]
         st.write("CLAIM:", claim)
         st.write("EVIDENCE:", evidence)
